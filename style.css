@@ -1,0 +1,14 @@
+canvas {
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+body {
+  text-align: center;
+}
+hr {
+  width: 700px;
+}
+canvas:hover {
+  cursor: crosshair;
+}
