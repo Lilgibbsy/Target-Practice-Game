@@ -142,10 +142,10 @@ function ballWallBounceFive() {
 }
 function objectInteractionBounce() {
   if (
-    arcX - ballX < 10 &&
-    arcX - ballX > -10 &&
-    arcY - ballY < 10 &&
-    arcY - ballY > -10
+    arcX - ballX < 20 &&
+    arcX - ballX > -20 &&
+    arcY - ballY < 20 &&
+    arcY - ballY > -20
   ) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
@@ -155,10 +155,10 @@ function objectInteractionBounce() {
 }
 function objectInteractionBounceTwo() {
   if (
-    arcX - ballTwoX < 30 &&
-    arcX - ballTwoX > -30 &&
-    arcY - ballTwoY < 30 &&
-    arcY - ballTwoY > -30
+    arcX - ballTwoX < 20 &&
+    arcX - ballTwoX > -20 &&
+    arcY - ballTwoY < 20 &&
+    arcY - ballTwoY > -20
   ) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
@@ -168,10 +168,10 @@ function objectInteractionBounceTwo() {
 }
 function objectInteractionBounceThree() {
   if (
-    arcX - ballThreeX < 30 &&
-    arcX - ballThreeX > -30 &&
-    arcY - ballThreeY < 30 &&
-    arcY - ballThreeY > -30
+    arcX - ballThreeX < 20 &&
+    arcX - ballThreeX > -20 &&
+    arcY - ballThreeY < 20 &&
+    arcY - ballThreeY > -20
   ) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
@@ -181,10 +181,10 @@ function objectInteractionBounceThree() {
 }
 function objectInteractionBounceFour() {
   if (
-    arcX - ballFourX < 30 &&
-    arcX - ballFourX > -30 &&
-    arcY - ballFourY < 30 &&
-    arcY - ballFourY > -30
+    arcX - ballFourX < 20 &&
+    arcX - ballFourX > -20 &&
+    arcY - ballFourY < 20 &&
+    arcY - ballFourY > -20
   ) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
@@ -194,10 +194,10 @@ function objectInteractionBounceFour() {
 }
 function objectInteractionBounceFive() {
   if (
-    arcX - ballFiveX < 30 &&
-    arcX - ballFiveX > -30 &&
-    arcY - ballFiveY < 30 &&
-    arcY - ballFiveY > -30
+    arcX - ballFiveX < 20 &&
+    arcX - ballFiveX > -20 &&
+    arcY - ballFiveY < 20 &&
+    arcY - ballFiveY > -20
   ) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
