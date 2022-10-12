@@ -1,3 +1,4 @@
+//variables
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
 cnv.width = 700;
@@ -7,6 +8,8 @@ let arcY = Math.round(Math.random() * 595);
 let moveX = 1;
 let moveY = 1;
 let score = 0;
+
+//Target and movement
 setInterval(loop, 1);
 function loop() {
   ctx.beginPath();
@@ -25,6 +28,7 @@ function loop() {
   arcY += moveY;
 }
 
+//Target click detection
 function mousemove(event) {
   let mouseX = event.pageX;
   let mouseY = event.pageY;
@@ -44,6 +48,7 @@ function mousemove(event) {
 }
 window.addEventListener("click", mousemove);
 
+//Collison detection
 setInterval(wallBounce, 1);
 function wallBounce() {
   if (arcY == 600) {
@@ -56,8 +61,9 @@ function wallBounce() {
     moveX = 1;
   }
 }
-let time = 60;
 
+//Timer
+let time = 60;
 setInterval(timer, 1000);
 function timer() {
   if (time > 0) {
