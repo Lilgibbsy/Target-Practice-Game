@@ -28,6 +28,7 @@ let ballFourMoveY = 1;
 let ballFiveMoveX = -1;
 let ballFiveMoveY = 1;
 let score = 0;
+let accuracyScore = 0
 
 //Target and movement
 
@@ -108,8 +109,9 @@ function timer() {
     ballFourMoveY = 0;
     ballFiveMoveX = 0;
     ballFiveMoveY = 0;
-    document.getElementById("points").innerHTML =
-      "Score: " + Math.round((score / 60) * 10) + " /10";
-  }
-  document.getElementById("timer").innerHTML = time + "s";
+    document.getElementById("points").innerHTML = Math.round(score / 60 * 10) + " /10"
+    }
+    document.getElementById("timer").innerHTML = time + "s";
 }
+
+
