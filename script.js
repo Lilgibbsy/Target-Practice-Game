@@ -39,7 +39,7 @@ function mousemove(event) {
     moveX = 0 - moveX;
     moveY = 0 - moveY;
     score++;
-    document.getElementById("score").innerHTML = "Score: " + score;
+    document.getElementById("score").innerHTML = "Points: " + score;
   }
 }
 window.addEventListener("click", mousemove);
@@ -55,4 +55,18 @@ function wallBounce() {
   } else if (arcX == 0) {
     moveX = 1;
   }
+}
+let time = 60;
+
+setInterval(timer, 1000);
+function timer() {
+  if (time > 0) {
+    time -= 1;
+  } else if (time == 0) {
+    moveY = 0;
+    moveX = 0;
+    document.getElementById("points").innerHTML =
+      "Score: " + Math.round((score / 60) * 10) + " /10";
+  }
+  document.getElementById("timer").innerHTML = time + "s";
 }
