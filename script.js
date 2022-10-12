@@ -1,39 +1,58 @@
-var myGamePiece;
-
-function startGame() {
-  myGamePiece = new component(10, 10, "red", 2, 2);
-  myGameArea.start();
+let cnv = document.getElementById("myCanvas");
+let ctx = cnv.getContext("2d");
+cnv.width = 700;
+cnv.height = 600;
+let arcX = Math.round(Math.random() * 695);
+let arcY = Math.round(Math.random() * 595);
+let moveX = 1;
+let moveY = 1;
+let score = 0;
+setInterval(loop, 1);
+function loop() {
+  ctx.beginPath();
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, 700, 600);
+  ctx.restore();
+  ctx.beginPath();
+  ctx.arc(arcX, arcY, 1, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.arc(arcX, arcY, 6, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.arc(arcX, arcY, 10, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.restore();
+  arcX += moveX;
+  arcY += moveY;
 }
 
-var myGameArea = {
-  canvas: document.createElement("canvas"),
-  start: function () {
-    this.canvas.width = 480;
-    this.canvas.height = 270;
-    this.context = this.canvas.getContext("2d");
-    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-    this.interval = setInterval(updateGameArea, 20);
-  },
-  clear: function () {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  },
-};
-
-function component(width, height, color, x, y) {
-  this.width = width;
-  this.height = height;
-  this.x = x;
-  this.y = y;
-  this.update = function () {
-    ctx = myGameArea.context;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-  };
+function mousemove(event) {
+  let mouseX = event.pageX;
+  let mouseY = event.pageY;
+  if (
+    mouseX - arcX < 10 &&
+    mouseX - arcX > -10 &&
+    mouseY - arcY < 10 &&
+    mouseY - arcY > -10
+  ) {
+    arcX = Math.round(Math.random() * 699);
+    arcY = Math.round(Math.random() * 599);
+    moveX = 0 - moveX;
+    moveY = 0 - moveY;
+    score++;
+    document.getElementById("score").innerHTML = "Score: " + score;
+  }
 }
+window.addEventListener("click", mousemove);
 
-function updateGameArea() {
-  myGameArea.clear();
-  myGamePiece.x += 1;
-  myGamePiece.y += 1;
-  myGamePiece.update();
+setInterval(wallBounce, 1);
+function wallBounce() {
+  if (arcY == 600) {
+    moveY = -1;
+  } else if (arcY == 0) {
+    moveY = 1;
+  } else if (arcX == 700) {
+    moveX = -1;
+  } else if (arcX == 0) {
+    moveX = 1;
+  }
 }
