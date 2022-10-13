@@ -205,3 +205,7 @@ function objectInteractionBounceFive() {
     ballFiveMoveX = 0 - ballFiveMoveX;
   }
 }
+function end() {
+  ctx.font = "30px Arial";
+  ctx.fillText("End", arcX + 15, arcY + 10);
+}

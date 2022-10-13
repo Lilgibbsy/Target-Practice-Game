@@ -31,71 +31,76 @@ let accuracyScore = 0;
 
 setInterval(loop, 1);
 function loop() {
-  background();
-  target();
-  ball();
-  targetMove();
-  wallBounce();
-  ballMove();
-  ballWallBounce();
-  objectInteractionBounce();
-  objectInteractionBounceTwo();
-  objectInteractionBounceThree();
-  objectInteractionBounceFour();
-  objectInteractionBounceFive();
-  ballTwo();
-  ballThree();
-  ballFour();
-  ballFive();
-  ballTwoMove();
-  ballThreeMove();
-  ballFourMove();
-  ballFiveMove();
-  ballWallBounceTwo();
-  ballWallBounceThree();
-  ballWallBounceFour();
-  ballWallBounceFive();
+  if (gameOn) {
+    background();
+    target();
+    ball();
+    targetMove();
+    wallBounce();
+    ballMove();
+    ballWallBounce();
+    objectInteractionBounce();
+    objectInteractionBounceTwo();
+    objectInteractionBounceThree();
+    objectInteractionBounceFour();
+    objectInteractionBounceFive();
+    ballTwo();
+    ballThree();
+    ballFour();
+    ballFive();
+    ballTwoMove();
+    ballThreeMove();
+    ballFourMove();
+    ballFiveMove();
+    ballWallBounceTwo();
+    ballWallBounceThree();
+    ballWallBounceFour();
+    ballWallBounceFive();
+  }
 }
 
+let gameOn = true;
 function mousemove(event) {
-  let mouseX = event.pageX;
-  let mouseY = event.pageY;
-  if (
-    mouseX - arcX < 10 &&
-    mouseX - arcX > -10 &&
-    mouseY - arcY < 10 &&
-    mouseY - arcY > -10
-  ) {
-    arcX = Math.round(Math.random() * 699);
-    arcY = Math.round(Math.random() * 599);
-    ballTwoX = Math.round(Math.random() * 695);
-    ballTwoY = Math.round(Math.random() * 595);
-    ballThreeX = Math.round(Math.random() * 695);
-    ballThreeY = Math.round(Math.random() * 595);
-    ballFourX = Math.round(Math.random() * 695);
-    ballFourY = Math.round(Math.random() * 595);
-    ballFiveX = Math.round(Math.random() * 695);
-    ballFiveY = Math.round(Math.random() * 595);
-    ballX = Math.round(Math.random() * 695);
-    ballY = Math.round(Math.random() * 595);
-    moveX = 0 - moveX;
-    moveY = 0 - moveY;
-    score++;
-    document.getElementById("score").innerHTML = "Hits: " + score;
-    if (moveX < 0 && moveY < 0) {
-      moveX -= 0.1;
-      moveY -= 0.1;
-    } else if (moveX > 0 && moveY > 0) {
-      moveX += 0.1;
-      moveY += 0.1;
-    } else if (moveX > 0 && moveY < 0) {
-      moveX += 0.1;
-      moveY -= 0.1;
-    } else if (moveX < 0 && moveY > 0) {
-      moveX -= 0.1;
-      moveY += 0.1;
+  if (gameOn) {
+    let mouseX = event.pageX;
+    let mouseY = event.pageY;
+    if (
+      mouseX - arcX < 10 &&
+      mouseX - arcX > -10 &&
+      mouseY - arcY < 10 &&
+      mouseY - arcY > -10
+    ) {
+      arcX = Math.round(Math.random() * 699);
+      arcY = Math.round(Math.random() * 599);
+      ballTwoX = Math.round(Math.random() * 695);
+      ballTwoY = Math.round(Math.random() * 595);
+      ballThreeX = Math.round(Math.random() * 695);
+      ballThreeY = Math.round(Math.random() * 595);
+      ballFourX = Math.round(Math.random() * 695);
+      ballFourY = Math.round(Math.random() * 595);
+      ballFiveX = Math.round(Math.random() * 695);
+      ballFiveY = Math.round(Math.random() * 595);
+      ballX = Math.round(Math.random() * 695);
+      ballY = Math.round(Math.random() * 595);
+      moveX = 0 - moveX;
+      moveY = 0 - moveY;
+      score++;
+      document.getElementById("score").innerHTML = "Hits: " + score;
+      if (moveX < 0 && moveY < 0) {
+        moveX -= 0.1;
+        moveY -= 0.1;
+      } else if (moveX > 0 && moveY > 0) {
+        moveX += 0.1;
+        moveY += 0.1;
+      } else if (moveX > 0 && moveY < 0) {
+        moveX += 0.1;
+        moveY -= 0.1;
+      } else if (moveX < 0 && moveY > 0) {
+        moveX -= 0.1;
+        moveY += 0.1;
+      }
+      console.log(moveX, moveY);
     }
-    console.log(moveX, moveY);
   }
 }
 window.addEventListener("click", mousemove);
@@ -120,6 +125,8 @@ function timer() {
     ballFiveMoveY = 0;
     document.getElementById("points").innerHTML =
       "Score: " + Math.round((score / 60) * 10) + " /6";
+    gameOn = false;
+    end();
   }
   document.getElementById("timer").innerHTML = time + "s";
 }
