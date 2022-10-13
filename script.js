@@ -1,4 +1,3 @@
-//variables
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
 cnv.width = 700;
@@ -28,9 +27,7 @@ let ballFourMoveY = 1;
 let ballFiveMoveX = -1;
 let ballFiveMoveY = 1;
 let score = 0;
-let accuracyScore = 0
-
-//Target and movement
+let accuracyScore = 0;
 
 setInterval(loop, 1);
 function loop() {
@@ -60,7 +57,6 @@ function loop() {
   ballWallBounceFive();
 }
 
-//Target click detection
 function mousemove(event) {
   let mouseX = event.pageX;
   let mouseY = event.pageY;
@@ -86,11 +82,24 @@ function mousemove(event) {
     moveY = 0 - moveY;
     score++;
     document.getElementById("score").innerHTML = "Hits: " + score;
+    if (moveX < 0 && moveY < 0) {
+      moveX -= 0.1;
+      moveY -= 0.1;
+    } else if (moveX > 0 && moveY > 0) {
+      moveX += 0.1;
+      moveY += 0.1;
+    } else if (moveX > 0 && moveY < 0) {
+      moveX += 0.1;
+      moveY -= 0.1;
+    } else if (moveX < 0 && moveY > 0) {
+      moveX -= 0.1;
+      moveY += 0.1;
+    }
+    console.log(moveX, moveY);
   }
 }
 window.addEventListener("click", mousemove);
 
-//Timer
 let time = 60;
 setInterval(timer, 1000);
 function timer() {
@@ -109,9 +118,8 @@ function timer() {
     ballFourMoveY = 0;
     ballFiveMoveX = 0;
     ballFiveMoveY = 0;
-    document.getElementById("points").innerHTML = Math.round(score / 60 * 10) + " /10"
-    }
-    document.getElementById("timer").innerHTML = time + "s";
+    document.getElementById("points").innerHTML =
+      "Score: " + Math.round((score / 60) * 10) + " /6";
+  }
+  document.getElementById("timer").innerHTML = time + "s";
 }
-
-

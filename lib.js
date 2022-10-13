@@ -75,68 +75,68 @@ function ballFiveMove() {
 }
 
 function wallBounce() {
-  if (arcY == 600) {
+  if (arcY > 599) {
     moveY = 0 - moveY;
-  } else if (arcY == 0) {
+  } else if (arcY < 1) {
     moveY = 0 - moveY;
-  } else if (arcX == 700) {
+  } else if (arcX > 699) {
     moveX = 0 - moveX;
-  } else if (arcX == 0) {
+  } else if (arcX < 1) {
     moveX = 0 - moveX;
   }
 }
 function ballWallBounce() {
-  if (ballY == 600) {
+  if (ballY > 599) {
     ballMoveY = 0 - ballMoveY;
-  } else if (ballY == 0) {
+  } else if (ballY < 1) {
     ballMoveY = 0 - ballMoveY;
-  } else if (ballX == 700) {
+  } else if (ballX > 699) {
     ballMoveX = 0 - ballMoveX;
-  } else if (ballX == 0) {
+  } else if (ballX < 1) {
     ballMoveX = 0 - ballMoveX;
   }
 }
 function ballWallBounceTwo() {
-  if (ballTwoY == 600) {
+  if (ballTwoY > 599) {
     ballTwoMoveY = 0 - ballTwoMoveY;
-  } else if (ballTwoY == 0) {
+  } else if (ballTwoY < 1) {
     ballTwoMoveY = 0 - ballTwoMoveY;
-  } else if (ballTwoX == 700) {
+  } else if (ballTwoX > 699) {
     ballTwoMoveX = 0 - ballTwoMoveX;
-  } else if (ballTwoX == 0) {
+  } else if (ballTwoX < 1) {
     ballTwoMoveX = 0 - ballTwoMoveX;
   }
 }
 function ballWallBounceThree() {
-  if (ballThreeY == 600) {
+  if (ballThreeY > 599) {
     ballThreeMoveY = 0 - ballThreeMoveY;
-  } else if (ballThreeY == 0) {
+  } else if (ballThreeY < 1) {
     ballThreeMoveY = 0 - ballThreeMoveY;
-  } else if (ballThreeX == 700) {
+  } else if (ballThreeX > 699) {
     ballThreeMoveX = 0 - ballThreeMoveX;
-  } else if (ballThreeX == 0) {
+  } else if (ballThreeX < 1) {
     ballThreeMoveX = 0 - ballThreeMoveX;
   }
 }
 function ballWallBounceFour() {
-  if (ballFourY == 600) {
+  if (ballFourY > 599) {
     ballFourMoveY = 0 - ballFourMoveY;
-  } else if (ballFourY == 0) {
+  } else if (ballFourY < 1) {
     ballFourMoveY = 0 - ballFourMoveY;
-  } else if (ballFourX == 700) {
+  } else if (ballFourX > 699) {
     ballFourMoveX = 0 - ballFourMoveX;
-  } else if (ballFourX == 0) {
+  } else if (ballFourX < 1) {
     ballFourMoveX = 0 - ballFourMoveX;
   }
 }
 function ballWallBounceFive() {
-  if (ballFiveY == 600) {
+  if (ballFiveY > 599) {
     ballFiveMoveY = 0 - ballFiveMoveY;
-  } else if (ballFiveY == 0) {
+  } else if (ballFiveY < 1) {
     ballFiveMoveY = 0 - ballFiveMoveY;
-  } else if (ballFiveX == 700) {
+  } else if (ballFiveX > 699) {
     ballFiveMoveX = 0 - ballFiveMoveX;
-  } else if (ballFiveX == 0) {
+  } else if (ballFiveX < 1) {
     ballFiveMoveX = 0 - ballFiveMoveX;
   }
 }
